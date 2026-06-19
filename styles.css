@@ -27,6 +27,8 @@ button { font: inherit; }
 
 .postcard {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: min(94vw, 1500px);
   aspect-ratio: 16 / 9;
   min-height: 520px;
@@ -38,7 +40,12 @@ button { font: inherit; }
 }
 
 .postcard__inner {
-  height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
   overflow: hidden;
   border: 8px solid rgb(23 63 112 / 25%);
   background-color: var(--paper);
@@ -651,21 +658,18 @@ button { font: inherit; }
 .pagination button:focus-visible { outline: 4px solid #e9a52d; outline-offset: 3px; }
 .pagination output { min-width: clamp(92px, 10vw, 145px); padding: 0 16px; background: #fffdf7; font-size: clamp(16px, 1.7vw, 27px); }
 
-/* Tablet landscape: keep the desktop composition but give galleries enough height. */
-@media (min-width: 851px) and (max-width: 1180px) {
-  body { place-items: start center; }
-
+/* Compact desktop and tablet: scale the 16:9 composition without distortion. */
+@media (min-width: 981px) and (max-width: 1180px) {
   .postcard {
-    height: 700px;
-    min-height: 700px;
-    aspect-ratio: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 980px) {
   body { display: block; padding: 0; background: var(--paper); }
   .postcard { width: 100%; min-height: 100vh; aspect-ratio: auto; padding: 10px; border-radius: 0; }
-  .postcard__inner { overflow-y: auto; }
+  .postcard__inner { flex: none; height: auto; max-height: none; overflow-y: auto; }
   .page--cover {
     display: block;
     min-height: 1320px;
@@ -674,6 +678,8 @@ button { font: inherit; }
   }
   .cover-character {
     min-height: 585px;
+    max-width: 720px;
+    margin-inline: auto;
     padding-bottom: 55px;
     border-right: 0;
     border-bottom: 3px dashed rgb(23 63 112 / 22%);
@@ -681,7 +687,7 @@ button { font: inherit; }
   .cover-character__hello { top: 0; left: 2%; }
   .avatar { width: min(86%, 340px); margin-top: 0; }
   .cover-signature { bottom: 18px; }
-  .cover-intro { padding: 42px 0 0; }
+  .cover-intro { max-width: 720px; margin-inline: auto; padding: 42px 0 0; }
   .cover-kicker { margin-bottom: 24px; font-size: 14px; }
   .speech-card {
     width: calc(100% - 20px);
@@ -696,7 +702,7 @@ button { font: inherit; }
   .cover-photo--two { width: 58%; }
   .cover-photo figcaption { font-size: 10px; }
   .profile-page { min-height: 1180px; padding: 65px 22px 140px; }
-  .profile-page > * { position: relative; inset: auto; width: 100%; }
+  .profile-page > * { position: relative; inset: auto; width: 100%; max-width: 720px; margin-inline: auto; }
   .portrait { width: min(76%, 330px); height: 370px; margin: 10px auto 35px; }
   .intro { margin-bottom: 28px; }
   .intro h1 { font-size: clamp(52px, 15vw, 90px); }
@@ -744,6 +750,15 @@ button { font: inherit; }
   .page[data-page="4"] .photo-card--small-right .photo-placeholder,
   .page[data-page="4"] .photo-card--right .photo-placeholder { aspect-ratio: 3 / 4; }
   .pagination { position: fixed; right: 12px; bottom: 12px; }
+}
+
+@media (min-width: 601px) and (max-width: 980px) {
+  .gallery,
+  .page[data-page="2"] .gallery,
+  .page[data-page="3"] .gallery,
+  .page[data-page="4"] .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
