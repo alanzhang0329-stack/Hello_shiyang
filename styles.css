@@ -373,14 +373,16 @@ button { font: inherit; }
   display: grid;
   grid-template-columns: 9fr 21.333fr 12fr 12fr 12fr;
   gap: 1.1%;
-  align-items: end;
+  align-items: stretch;
+  min-height: 0;
 }
 
 .page[data-page="2"] .photo-card {
   position: relative;
   inset: auto;
   width: auto;
-  height: auto;
+  height: 100%;
+  min-height: 0;
 }
 
 .page[data-page="2"] .photo-card--tall { transform: rotate(-.7deg); }
@@ -399,6 +401,11 @@ button { font: inherit; }
 .page[data-page="2"] .photo-card--small .photo-placeholder,
 .page[data-page="2"] .photo-card--small-right .photo-placeholder,
 .page[data-page="2"] .photo-card--right .photo-placeholder { aspect-ratio: 3 / 4; }
+
+.page[data-page="2"] .photo-card .photo-placeholder {
+  height: calc(100% - 25px);
+  aspect-ratio: auto;
+}
 
 .page[data-page="2"] .photo-card--right figcaption {
   height: 22px;
@@ -643,6 +650,17 @@ button { font: inherit; }
 .pagination button:hover { filter: brightness(1.12); transform: translateY(-2px); }
 .pagination button:focus-visible { outline: 4px solid #e9a52d; outline-offset: 3px; }
 .pagination output { min-width: clamp(92px, 10vw, 145px); padding: 0 16px; background: #fffdf7; font-size: clamp(16px, 1.7vw, 27px); }
+
+/* Tablet landscape: keep the desktop composition but give galleries enough height. */
+@media (min-width: 851px) and (max-width: 1180px) {
+  body { place-items: start center; }
+
+  .postcard {
+    height: 700px;
+    min-height: 700px;
+    aspect-ratio: auto;
+  }
+}
 
 @media (max-width: 850px) {
   body { display: block; padding: 0; background: var(--paper); }
