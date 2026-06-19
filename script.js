@@ -2,8 +2,21 @@ const pages = [...document.querySelectorAll(".page")];
 const previousButton = document.querySelector("#previous");
 const nextButton = document.querySelector("#next");
 const indicator = document.querySelector("#page-indicator");
+const postcardInner = document.querySelector(".postcard__inner");
 
 let currentPage = 0;
+
+function resetScrollPosition() {
+  const documentScroller = document.scrollingElement || document.documentElement;
+
+  postcardInner.scrollTop = 0;
+  postcardInner.scrollLeft = 0;
+  documentScroller.scrollTop = 0;
+  documentScroller.scrollLeft = 0;
+  document.body.scrollTop = 0;
+  document.body.scrollLeft = 0;
+  window.scrollTo(0, 0);
+}
 
 function applyContent() {
   Object.entries(window.postcardContent || {}).forEach(([pageNumber, content]) => {
@@ -60,6 +73,8 @@ function showPage(index) {
 
   indicator.value = `${String(currentPage + 1).padStart(2, "0")} / ${String(pages.length).padStart(2, "0")}`;
   document.title = `个人明信片 · ${currentPage + 1}/${pages.length}`;
+
+  requestAnimationFrame(resetScrollPosition);
 }
 
 previousButton.addEventListener("click", () => showPage(currentPage - 1));
