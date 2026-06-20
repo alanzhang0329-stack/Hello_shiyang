@@ -30,7 +30,7 @@ window.postcardContent = {
     facts: ["菜系：北方菜、一锅炖", "时机：考试、项目结束后，周末", "从零开始做出一桌饭", "做饭很爽，洗锅太累👿"],
     captions: ["大家一起做的年夜饭", "‘三活一’的准备", "陕北烩菜，太香兰", "真的太喜欢烩菜了", "做饭必须配点绿菜"],
     photos: [
-      { src: "images/WechatIMG1238.jpg", alt: "烹饪页个人照片", position: "50% 50%", scale: 1 },
+      { src: "images/WechatIMG1245.jpg", alt: "烹饪页个人照片", position: "50% 50%", scale: 1 },
       { src: "images/WechatIMG1230.jpg", alt: "烹饪爱好照片1", position: "50% 50%", scale: 1 },
       { src: "images/WechatIMG1239.jpg", alt: "烹饪爱好照片 2", position: "50% 50%", scale: 1 },
       { src: "images/WechatIMG1229.jpg", alt: "烹饪爱好照片 3", position: "50% 50%", scale: 1 },
@@ -49,7 +49,7 @@ window.postcardContent = {
     facts: ["喜欢：山景、日落、散步", "随身物品：一个背包足以", "风景在路上，不等人的⛰️", "欲买桂花同载酒，终不似少年游"],
     captions: ["认真找角度拍草甸的全貌", "夜爬华山的日出", "黑神话的复活点", "老君山的彩灯很壮观", "马来西亚双子塔非常惊艳"],
     photos: [
-      { src: "", alt: "旅行页个人照片", position: "50% 50%", scale: 1 },
+      { src: "images/WechatIMG1247.jpg", alt: "旅行页个人照片", position: "50% 50%", scale: 1 },
       { src: "images/WechatIMG1227.jpg", alt: "旅行爱好照片 1", position: "50% 50%", scale: 1 },
       { src: "images/WechatIMG1226.jpg", alt: "旅行爱好照片 2", position: "50% 50%", scale: 1 },
       { src: "images/WechatIMG1235.jpg", alt: "旅行爱好照片 3", position: "50% 50%", scale: 1 },
