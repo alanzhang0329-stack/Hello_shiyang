@@ -25,8 +25,6 @@ body {
 
 button { font: inherit; }
 
-.postcard-stage { display: contents; }
-
 .postcard {
   position: relative;
   display: flex;
@@ -665,28 +663,6 @@ button { font: inherit; }
   .postcard {
     min-height: 0;
     aspect-ratio: 16 / 9;
-  }
-}
-
-/* Resizable PC windows: preserve the design canvas and scale it as one unit. */
-@media (min-width: 981px) and (hover: hover) and (pointer: fine) {
-  .postcard-stage {
-    display: block;
-    position: relative;
-    width: var(--desktop-stage-width, 1500px);
-    height: var(--desktop-stage-height, 843.75px);
-    flex: none;
-  }
-
-  .postcard {
-    position: absolute;
-    inset: 0 auto auto 0;
-    width: 1500px;
-    height: 843.75px;
-    min-height: 0;
-    aspect-ratio: auto;
-    transform: scale(var(--desktop-scale, 1));
-    transform-origin: top left;
   }
 }
 
